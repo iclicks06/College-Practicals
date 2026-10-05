@@ -1,13 +1,30 @@
 #include <stdio.h>
-int main ()
+#include <math.h>
+
+int main()
 {
-	int temp ,i, n, as;
-	printf("Enter the value : ");
-	scanf("%d", &n);
-	for (i=1; n!=0; n=n/10)
-	{
-		temp = (n*n*n) + (n%10* (n*n*n));
-	}
-	printf("%d", temp);
-	return 0;
+    int num, n, r, digits = 0, sum = 0;
+
+    printf("Enter the value: ");
+    scanf("%d", &num);
+
+    for (n = num; n != 0; n /= 10) {
+        digits++;
+    }
+
+    n = num;
+
+    for (; n != 0; n /= 10) {
+        r = n % 10;
+        sum += pow(r, 3);
+
+    }
+
+    if (sum == num) {
+        printf("%d is an Armstrong number. Sum = %d\n", num, sum);
+    } else {
+        printf("%d is not an Armstrong number. Sum = %d\n", num, sum);
+    }
+
+    return 0;
 }
